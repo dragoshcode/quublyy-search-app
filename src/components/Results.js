@@ -10,12 +10,16 @@ export const Results = () => {
   const location = useLocation();
 
   useEffect(() => {
-    getResults('/search/q=java&num=200');
-  }, []);
+    if (searchTerm) {
+      if (location.pathname === '/videos') {
+        getResults(`/search/q=${searchTerm} videos`);
+      } else {
+        getResults(`${location.pathname}/q=${searchTerm}`);
+      }
+    }
+  }, [searchTerm, location.pathname]);
 
   if (isLoading) return <Loading />;
-
-  // ! commit -m "Create the context for fetching google data and display it on the routes"
 
   switch (location.pathname) {
     case '/search':
@@ -36,13 +40,49 @@ export const Results = () => {
         </div>
       );
     case '/images':
-      return 'Search';
+      return (
+        <div className='flex flex-wrap justify-center items-center'>
+          {results?.image_results?.map(
+            ({ image, link: { href, title } }, index) => (
+              <a
+                className='sm:p-3 p-5'
+                href={href}
+                key={index}
+                target='_blank'
+                rel='noreferrer'
+              >
+                <img src={image?.src} alt={title} loading='lazy' />
+                <p className='w-36 break-words text-sm mt-2'>{title}</p>
+              </a>
+            )
+          )}
+        </div>
+      );
     case '/news':
-      return 'Search';
+      return (
+        <div className='flex flex-wrap justify-between space-y-6 sm:px-56 items-center'>
+          {results?.entries?.map(({ links, id, source, title }) => (
+            <div key={id} className='md:w-2/5 w-full'>
+              <a
+                href={links?.[0].href}
+                target='_blank'
+                rel='noreferrer'
+                className='hover:underline'
+              >
+                <p className='text-lg dark:text-blue-300 text-blue-700'>
+                  {title}
+                </p>
+                <div className='flex gap-4'></div>
+              </a>
+              {/* continue from 8:56:50, but firstly change the last commit by removing it then commit and push once again by changing "news" to "images" */}
+            </div>
+          ))}
+        </div>
+      );
     case '/videos':
       return 'Search';
 
     default:
-      return 'ERROR!';
+      return '404 | Not Found';
   }
 };
