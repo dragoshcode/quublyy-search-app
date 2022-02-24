@@ -20,12 +20,11 @@ export const Results = () => {
   }, [searchTerm, location.pathname]);
 
   if (isLoading) return <Loading />;
-
   switch (location.pathname) {
     case '/search':
       return (
         <div className='flex flex-wrap justify-between space-y-6 sm:px-56'>
-          {results?.map(({ link, title }, index) => (
+          {results?.results?.map(({ link, title }, index) => (
             <div key={index} className='md:w-2/5 w-full'>
               <a href={link} target='_blank' rel='noreferrer'>
                 <p className='text-sm'>
@@ -42,24 +41,26 @@ export const Results = () => {
     case '/images':
       return (
         <div className='flex flex-wrap justify-center items-center'>
-          {results?.map(({ image, link: { href, title } }, index) => (
-            <a
-              className='sm:p-3 p-5'
-              href={href}
-              key={index}
-              target='_blank'
-              rel='noreferrer'
-            >
-              <img src={image?.src} alt={title} loading='lazy' />
-              <p className='w-36 break-words text-sm mt-2'>{title}</p>
-            </a>
-          ))}
+          {results?.image_results?.map(
+            ({ image, link: { href, title } }, index) => (
+              <a
+                className='sm:p-3 p-5'
+                href={href}
+                key={index}
+                target='_blank'
+                rel='noreferrer'
+              >
+                <img src={image?.src} alt={title} loading='lazy' />
+                <p className='w-36 break-words text-sm mt-2'>{title}</p>
+              </a>
+            )
+          )}
         </div>
       );
     case '/news':
       return (
         <div className='flex flex-wrap justify-between space-y-6 sm:px-56 items-center'>
-          {results?.map(({ links, id, source, title }) => (
+          {results?.entries?.map(({ links, id, source, title }) => (
             <div key={id} className='md:w-2/5 w-full'>
               <a
                 href={links?.[0].href}
@@ -81,7 +82,20 @@ export const Results = () => {
         </div>
       );
     case '/videos':
-      return 'Search';
+      return (
+        <div className='flex flex-wrap justify-center'>
+          {results?.results?.map((video, index) => (
+            <div key={index} className='p-2'>
+              <ReactPlayer
+                url={video.additional_links?.[0].href}
+                controls
+                width='355px'
+                height='200px'
+              />
+            </div>
+          ))}
+        </div>
+      );
 
     default:
       return '404 | Not Found';
