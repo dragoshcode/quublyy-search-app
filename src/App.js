@@ -21,11 +21,10 @@ const App = () => {
               </>
             }
           />
-          {/* <Route
-            path={['/search', '/images', '/news', '/videos']}
-            element={<Results />}
-          /> */}
-          <Route />
+          <Route path='/search' element={<Results />} />
+          <Route path='/images' element={<Results />} />
+          <Route path='/news' element={<Results />} />
+          <Route path='/videos' element={<Results />} />
         </Routes>
       </div>
     </div>
