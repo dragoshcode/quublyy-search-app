@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -11,21 +11,15 @@ const App = () => {
   return (
     <div className={darkTheme ? 'dark' : ''}>
       <div className='bg-gray-100 dark:bg-gray-900 dark:text-gray-200 h-screen'>
+        <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
         <Routes>
-          <Route
-            path='/'
-            element={
-              <>
-                <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
-                <Footer />
-              </>
-            }
-          />
+          <Route path='/' element={<Navigate to='search' />} />
           <Route path='/search' element={<Results />} />
           <Route path='/images' element={<Results />} />
           <Route path='/news' element={<Results />} />
           <Route path='/videos' element={<Results />} />
         </Routes>
+        <Footer />
       </div>
     </div>
   );
