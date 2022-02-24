@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import { Search } from './Search';
 
 export const Navbar = ({ darkTheme, setDarkTheme }) => {
   return (
@@ -10,7 +11,7 @@ export const Navbar = ({ darkTheme, setDarkTheme }) => {
           <img
             src={logo}
             alt='logo'
-            className='bg-blue-500 rounded w-40 px-2 dark:bg-gray-600'
+            className='bg-blue-600 rounded w-40 px-2 dark:bg-gray-700'
           />
         </Link>
         <button
@@ -21,6 +22,7 @@ export const Navbar = ({ darkTheme, setDarkTheme }) => {
           {darkTheme ? 'Light 💡' : 'Dark 🌕'}
         </button>
       </div>
+      <Search />
     </div>
   );
 };
