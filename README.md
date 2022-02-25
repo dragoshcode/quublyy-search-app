@@ -9,7 +9,7 @@ search app created by an enthusiastic React developer, me :)
 
 ## 🎯Links
 
-Watch it in action [here](https://quublyy-search-app.netlify.app/search)
+Watch it in action [here](https://quublyy-search-app.netlify.app)
 
 ## 📌 Features
 
