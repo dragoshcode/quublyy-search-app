@@ -4,8 +4,8 @@
 
 <p align="center">Find your thing</p>
 
-Don't worry if Google is down, meet Quublyy, a new & minimalist
-search app created by an enthusiastic React developer, me :)
+In the case Google is down, don't you worry, but, meet Quublyy, a new & minimalist
+search app 
 
 ## 🎯Links
 
