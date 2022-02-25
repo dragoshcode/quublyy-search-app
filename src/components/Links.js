@@ -10,7 +10,7 @@ const links = [
 
 export const Links = () => {
   return (
-    <div className='flex justify-center w-screen items-center mt-4'>
+    <div className='w-screen flex justify-center mt-4 '>
       {links.map(({ url, text }) => (
         <NavLink
           to={url}

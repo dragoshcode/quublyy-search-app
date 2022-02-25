@@ -25,7 +25,7 @@ export const Results = () => {
   switch (location.pathname) {
     case '/search':
       return (
-        <div className='flex flex-wrap justify-between space-y-6 sm:px-56'>
+        <div className='flex flex-wrap justify-between space-y-6 sm:px-56 mt-7 p-4'>
           {results?.results?.map(({ link, title }, index) => (
             <div key={index} className='md:w-2/5 w-full'>
               <a href={link} target='_blank' rel='noreferrer'>
@@ -42,7 +42,7 @@ export const Results = () => {
       );
     case '/images':
       return (
-        <div className='flex flex-wrap justify-center items-center'>
+        <div className='flex flex-wrap justify-center items-center mt-7 p-4'>
           {results?.image_results?.map(
             ({ image, link: { href, title } }, index) => (
               <a
@@ -61,7 +61,7 @@ export const Results = () => {
       );
     case '/news':
       return (
-        <div className='flex flex-wrap justify-between space-y-6 sm:px-56 items-center'>
+        <div className='flex flex-wrap justify-between space-y-6 sm:px-56 items-center mt-7 p-4'>
           {results?.entries?.map(({ links, id, source, title }) => (
             <div key={id} className='md:w-2/5 w-full'>
               <a
@@ -85,7 +85,7 @@ export const Results = () => {
       );
     case '/videos':
       return (
-        <div className='flex flex-wrap justify-center'>
+        <div className='flex flex-wrap justify-center mt-7 p-4'>
           {results?.results?.map((video, index) => (
             <div key={index} className='p-2'>
               <ReactPlayer
