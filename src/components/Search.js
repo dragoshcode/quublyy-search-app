@@ -1,11 +1,12 @@
-import React from 'react'
-import {Links} from './Links'
+import React, { useState, useEffect } from 'react';
+import { useDebounce } from 'use-debounce';
+
+import { Links } from './Links';
 
 export const Search = () => {
   return (
     <div>
-      Search
-      <Links/>
-      </div>
-  )
-}
+      <Links />
+    </div>
+  );
+};

@@ -10,7 +10,6 @@ const links = [
 
 export const Links = () => {
   return (
-    //   just continue from 9:12:20 and also read the opened .txt file, and also push -m "Add links for switching between the needed type of content"[speaking about those 4 links under "search input"] AND check Contexts' file
     <div className='flex justify-center w-screen items-center mt-4'>
       {links.map(({ url, text }) => (
         <NavLink

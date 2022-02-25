@@ -11,7 +11,7 @@ export const Navbar = ({ darkTheme, setDarkTheme }) => {
           <img
             src={logo}
             alt='logo'
-            className='bg-blue-600 rounded w-40 px-2 dark:bg-gray-700'
+            className='bg-gray-200 rounded-full w-40 px-2 dark:bg-blue-800'
           />
         </Link>
         <button
