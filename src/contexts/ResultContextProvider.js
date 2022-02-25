@@ -6,7 +6,7 @@ const baseUrl = 'https://google-search3.p.rapidapi.com/api/v1';
 export const ResultContextProvider = ({ children }) => {
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('pen');
+  const [searchTerm, setSearchTerm] = useState('ukraine');
 
   const getResults = async (type) => {
     setIsLoading(true);
@@ -24,7 +24,8 @@ export const ResultContextProvider = ({ children }) => {
     const data = await response.json();
 
     if (type.includes('/news')) {
-      setResults(data.entries);
+      // ! it's so weird, if I let it like this and loop like that in Results.js it ... works
+      setResults(data.entris);
     } else if (type.includes('/images')) {
       setResults(data.image_results);
     } else {
