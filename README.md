@@ -30,6 +30,7 @@ Demo gif
 
 - React
 - React Context
+- React Router
 - Tailwind
 - Google Search API (from RapidAPI)
 
