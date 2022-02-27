@@ -19,7 +19,6 @@ const App = () => {
           <Route path='/news' element={<Results />} />
           <Route path='/videos' element={<Results />} />
         </Routes>
-        <Footer />
       </div>
     </div>
   );
