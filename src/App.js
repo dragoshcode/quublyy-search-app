@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
 import { Navbar } from './components/Navbar';
-import { Footer } from './components/Footer';
 import { Results } from './components/Results';
 
 const App = () => {
